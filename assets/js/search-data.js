@@ -495,6 +495,13 @@ ninja.data = [{
           window.open("mailto:%68%65%6E%72%79@%73%61%66%65%72-%61%69.%63%6F%6D", "_blank");
         },
       },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/henrypapadatos", "_blank");
+        },
+      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
