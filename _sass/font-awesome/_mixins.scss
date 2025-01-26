@@ -63,3 +63,14 @@
 
   & { #{$fa-icon-property}: unquote("\"#{ $fa-var }\""); #{$fa-duotone-icon-property}: unquote("\"#{ $fa-var }#{ $fa-var }\""); }
 }
+// Scope changes to specific icons
+.fa-x-twitter,
+.fa-google-scholar,
+.fa-envelope,
+.fa-linkedin,
+.ai-google-scholar,
+.fa-github {
+  font-size: 0.5em; // Reduce size to 50%
+  line-height: 0.5em; // Maintain consistent spacing
+  vertical-align: middle; // Ensure alignment with surrounding text
+}
