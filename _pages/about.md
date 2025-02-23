@@ -14,8 +14,14 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Test your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hi, I'm Henry,
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I am a technical AI risk management expert. I focus on addressing the growing gap between rapid AI advancement and our ability to manage its associated risks.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I am the Managing Director of [SaferAI](https://www.safer-ai.org/) where I work on both, AI governance and technical solutions to improve the risk management for frontier AI systems.
+
+In the governance space, I contributed to crucial initiatives such as the EU AI Act's Code of Practice and the G7 Hiroshima AI Process reporting framework.
+
+On the technical front, I developed an [AI risk management ratings system for AI developers](https://ratings.safer-ai.org/), which has received endorsement from renowned AI researcher Yoshua Bengio and attracted coverage from [TIME](https://time.com/7026972/saferai-study-xai-meta/) and [Euractiv](https://www.euractiv.com/section/digital/news/top-ai-companies-suffer-from-poor-ai-risk-management-says-french-non-profit/). I'm also working on a comprehensive AI risk management framework that integrates current AI practices with proven risk management strategies from other industries.
+
+Prior to joining SaferAI, I conducted technical research on large language models alignement at the [Center for Human-Compatible AI](https://humancompatible.ai/) at UC Berkeley.
