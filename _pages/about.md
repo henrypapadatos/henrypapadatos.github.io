@@ -16,12 +16,20 @@ social: true # includes social icons at the bottom of the page
 
 Hi, I'm Henry,
 
-I am a technical AI risk management expert. I focus on addressing the growing gap between rapid AI advancement and our ability to manage its associated risks.
+As a technical AI risk management expert, my focus lies in addressing the growing gap between rapid AI advancement and our ability to manage its associated risks.
 
-I am the Managing Director of [SaferAI](https://www.safer-ai.org/) where I work on both, AI governance and technical solutions to improve the risk management for frontier AI systems.
+I am the Managing Director of [SaferAI](https://www.safer-ai.org/) where I work on both AI governance and technical solutions to improve the risk management for frontier AI systems.
 
-In the governance space, I contributed to crucial initiatives such as the EU AI Act's Code of Practice and the G7 Hiroshima AI Process reporting framework.
+#### Governance
 
-On the technical front, I developed an [AI risk management ratings system for AI developers](https://ratings.safer-ai.org/), which has received endorsement from renowned AI researcher Yoshua Bengio and attracted coverage from [TIME](https://time.com/7026972/saferai-study-xai-meta/) and [Euractiv](https://www.euractiv.com/section/digital/news/top-ai-companies-suffer-from-poor-ai-risk-management-says-french-non-profit/). I'm also working on a comprehensive AI risk management framework that integrates current AI practices with proven risk management strategies from other industries.
+I am contributing to various initiatives in the governance space. I am in an expert working group for the EU AI Act's Codes of Practice, which focuses on general purpose AI models. My working group is focusing on the risk taxonomy and on risk identification and assessment. 
 
-Prior to joining SaferAI, I conducted technical research on large language models alignement at the [Center for Human-Compatible AI](https://humancompatible.ai/) at UC Berkeley.
+I also took part in the OECD task force in charge of drafting the G7 Hiroshima AI Process [reporting framework](https://transparency.oecd.ai/). Just before the Paris AI action summit, I advocated for international AI safety standards through an op-ed published in [TIME](https://time.com/7213772/paris-ai-summit-must-set-global-standards/). Most recently, I joined the OECD expert group on AI Risk & Accountability to further inform global governance.
+
+#### Technical research
+
+On the technical front, I developed an [AI risk management ratings system for AI developers](https://ratings.safer-ai.org/), which has been featured in [TIME](https://time.com/7026972/saferai-study-xai-meta/) and [Euractiv](https://www.euractiv.com/section/digital/news/top-ai-companies-suffer-from-poor-ai-risk-management-says-french-non-profit/). I then published a comprehensive [AI risk management framework](https://arxiv.org/abs/2502.06656) that integrates current AI practices with proven risk management strategies from other industries. 
+
+I am now working on improving risk modeling and quantitative risk assessment for AI-enabled cyber risks. In this effort, I recently published a [paper](https://arxiv.org/abs/2503.04299) addressing a key challenge in AI risk assessment: connecting empirical measures of AI capabilities to concrete estimates of real-world harms.
+
+Prior to joining SaferAI, I conducted technical research on large language models alignment at the [Center for Human-Compatible AI](https://humancompatible.ai/) at UC Berkeley.
