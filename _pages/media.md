@@ -452,6 +452,18 @@ nav_order: 3
     rgba(33, 37, 41, 0.03) 100%);
 }
 
+[data-theme="dark"] .featured-logo {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .featured-logo-link:hover .featured-logo {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
 [data-theme="dark"] .article-overlay {
   background: rgba(33, 37, 41, 0.95);
 }
