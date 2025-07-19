@@ -177,12 +177,13 @@ nav_order: 3
 }
 
 .featured-logos-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 3rem;
   margin-top: 3rem;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
+  max-width: 100%;
 }
 
 .article-card {
@@ -501,7 +502,6 @@ nav_order: 3
   }
   
   .featured-logos-grid {
-    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
   
@@ -548,7 +548,6 @@ nav_order: 3
   }
   
   .featured-logos-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
   
