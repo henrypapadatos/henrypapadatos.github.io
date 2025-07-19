@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Media Coverage
+title: Media
 permalink: /media/
 nav: true
 nav_order: 3
@@ -69,42 +69,53 @@ nav_order: 3
     
     <!-- Featured in section -->
     <div class="media-section">
-      <h2 class="section-title">Featured in</h2>
-      <div class="featured-grid">
+      <h2 class="section-title">Work Featured In</h2>
+      <div class="featured-logos-grid">
         
-        <!-- TIME feature -->
-        <div class="featured-card">
-          <a href="https://time.com/7026972/saferai-study-xai-meta/" target="_blank" class="featured-link">
-            <div class="featured-content">
-              <div class="outlet-logo">
-                <img src="{{ '/assets/img/media/time-logo.png' | relative_url }}" alt="TIME Logo" class="logo-img">
-              </div>
-              <div class="featured-info">
-                <h3 class="featured-title">AI Safety Study Reveals Gaps in Risk Management</h3>
-                <p class="featured-meta">
-                  <span class="date">November 2024</span>
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
+        <!-- TIME logo 1 -->
+        <a href="https://time.com/7302757/anthropic-xai-meta-openai-risk-management-2/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/time-logo.png' | relative_url }}" alt="TIME Logo" class="featured-logo">
+        </a>
         
-        <!-- Euractiv feature -->
-        <div class="featured-card">
-          <a href="https://www.euractiv.com/section/digital/news/top-ai-companies-suffer-from-poor-ai-risk-management-says-french-non-profit/" target="_blank" class="featured-link">
-            <div class="featured-content">
-              <div class="outlet-logo">
-                <img src="{{ '/assets/img/media/Euractiv_logo.svg' | relative_url }}" alt="Euractiv Logo" class="logo-img">
-              </div>
-              <div class="featured-info">
-                <h3 class="featured-title">Top AI Companies Suffer from Poor AI Risk Management, Says French Non-Profit</h3>
-                <p class="featured-meta">
-                  <span class="date">November 2024</span>
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
+        <!-- Semafor logo -->
+        <a href="https://www.semafor.com/article/07/18/2025/ai-risk-management-practices-are-severely-lacking-report-says" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/semafor-logo.svg' | relative_url }}" alt="Semafor Logo" class="featured-logo">
+        </a>
+        
+        <!-- Guardian logo -->
+        <a href="https://www.theguardian.com/technology/2025/jul/17/ai-firms-unprepared-for-dangers-of-building-human-level-systems-report-warns" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/theguardian-logo.jpg' | relative_url }}" alt="The Guardian Logo" class="featured-logo">
+        </a>
+        
+        <!-- techcrunch logo -->
+        <a href="https://techcrunch.com/2025/05/13/xais-promised-safety-report-is-mia/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/techcrunch_logo.png' | relative_url }}" alt="Techcrunch Logo" class="featured-logo">
+        </a>
+
+        <!-- AIinvest logo -->
+        <a href="https://www.ainvest.com/news/xai-faces-criticism-top-researchers-allegedly-lax-safety-practices-2507/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/aiinvest-logo.png' | relative_url }}" alt="AIinvest Logo" class="featured-logo">
+        </a>
+
+        <!-- franceinfo logo -->
+        <a href="https://www.franceinfo.fr/internet/intelligence-artificielle/pourquoi-grok-l-ia-d-elon-musk-s-est-elle-mise-a-parler-a-tout-va-de-genocide-blanc-en-afrique-du-sud_7252179.html" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/Franceinfo.svg' | relative_url }}" alt="Francinfo Logo" class="featured-logo">
+        </a>
+        
+        <!-- france24 logo -->
+        <a href="https://www.france24.com/en/tv-shows/tech-24/20250117-top-ai-companies-score-badly-on-risk-and-safety-assessments-ahead-of-paris-summit" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/FRANCE_24_logo.svg' | relative_url }}" alt="France24 Logo" class="featured-logo">
+        </a>
+
+        <!-- TIME logo 3 -->
+        <a href="https://time.com/7026972/saferai-study-xai-meta/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/time-logo.png' | relative_url }}" alt="TIME Logo" class="featured-logo">
+        </a>
+        
+        <!-- Euractiv logo 3 -->
+        <a href="https://www.euractiv.com/section/digital/news/top-ai-companies-suffer-from-poor-ai-risk-management-says-french-non-profit/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/Euractiv_logo.svg' | relative_url }}" alt="Euractiv Logo" class="featured-logo">
+        </a>
         
       </div>
     </div>
@@ -165,11 +176,13 @@ nav_order: 3
   margin-top: 2rem;
 }
 
-.featured-grid {
+.featured-logos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+  align-items: center;
+  justify-items: center;
 }
 
 .article-card {
@@ -187,21 +200,28 @@ nav_order: 3
   flex-direction: column;
 }
 
-.featured-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.08),
-    0 1px 3px rgba(0, 0, 0, 0.05);
-  position: relative;
+.featured-logo-link {
+  display: block;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.article-card::before,
-.featured-card::before {
+.featured-logo {
+  width: 120px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.featured-logo-link:hover .featured-logo {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+.article-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -213,8 +233,7 @@ nav_order: 3
   transition: opacity 0.3s ease;
 }
 
-.article-card:hover,
-.featured-card:hover {
+.article-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.12),
@@ -222,13 +241,11 @@ nav_order: 3
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-.article-card:hover::before,
-.featured-card:hover::before {
+.article-card:hover::before {
   opacity: 1;
 }
 
-.article-link,
-.featured-link {
+.article-link {
   text-decoration: none;
   color: inherit;
   display: block;
@@ -242,13 +259,6 @@ nav_order: 3
   flex-direction: column;
 }
 
-.featured-content {
-  padding: 2rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  height: 100%;
-}
 
 /* Article card image section */
 .article-image {
@@ -334,16 +344,14 @@ nav_order: 3
   transition: opacity 0.3s ease;
 }
 
-.article-card:hover .outlet-logo,
-.featured-card:hover .outlet-logo {
+.article-card:hover .outlet-logo {
   transform: scale(1.1);
   box-shadow: 
     0 12px 24px rgba(0, 0, 0, 0.15),
     0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-.article-card:hover .outlet-logo::before,
-.featured-card:hover .outlet-logo::before {
+.article-card:hover .outlet-logo::before {
   opacity: 1;
 }
 
@@ -355,8 +363,7 @@ nav_order: 3
   position: relative;
 }
 
-.article-info,
-.featured-info {
+.article-info {
   flex: 1;
   min-width: 0;
   display: flex;
@@ -364,8 +371,7 @@ nav_order: 3
   justify-content: center;
 }
 
-.article-title,
-.featured-title {
+.article-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0 0 0.75rem 0;
@@ -375,8 +381,7 @@ nav_order: 3
   transition: color 0.3s ease;
 }
 
-.article-card:hover .article-title,
-.featured-card:hover .featured-title {
+.article-card:hover .article-title {
   color: var(--global-theme-color);
 }
 
@@ -396,15 +401,6 @@ nav_order: 3
   line-height: 1.4;
 }
 
-.featured-meta {
-  margin: 0;
-  color: var(--global-text-color-light);
-  font-size: 0.95rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
 
 .author {
   font-weight: 600;
@@ -421,15 +417,6 @@ nav_order: 3
   font-weight: 400;
 }
 
-/* Featured card dates keep the pill style */
-.featured-meta .date {
-  color: var(--global-theme-color);
-  font-weight: 600;
-  background: rgba(39, 70, 99, 0.08);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-}
 
 .meta-separator {
   width: 4px;
@@ -440,8 +427,7 @@ nav_order: 3
 }
 
 /* Dark mode enhancements */
-[data-theme="dark"] .article-card,
-[data-theme="dark"] .featured-card {
+[data-theme="dark"] .article-card {
   background: rgba(33, 37, 41, 0.8);
   border-color: rgba(255, 255, 255, 0.1);
 }
@@ -457,9 +443,6 @@ nav_order: 3
     rgba(38, 152, 186, 0.05) 100%);
 }
 
-[data-theme="dark"] .featured-meta .date {
-  background: rgba(38, 152, 186, 0.15);
-}
 
 [data-theme="dark"] .media-coverage::before {
   background: linear-gradient(135deg, 
@@ -488,42 +471,47 @@ nav_order: 3
   }
 }
 
-.article-card,
-.featured-card {
+.article-card {
   animation: fadeInUp 0.6s ease-out;
 }
 
-.article-card:nth-child(2),
-.featured-card:nth-child(2) {
+.article-card:nth-child(2) {
   animation-delay: 0.1s;
 }
 
-.article-card:nth-child(3),
-.featured-card:nth-child(3) {
+.article-card:nth-child(3) {
   animation-delay: 0.2s;
 }
 
+.featured-logo-link {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.featured-logo-link:nth-child(2) { animation-delay: 0.1s; }
+.featured-logo-link:nth-child(3) { animation-delay: 0.2s; }
+.featured-logo-link:nth-child(4) { animation-delay: 0.3s; }
+.featured-logo-link:nth-child(5) { animation-delay: 0.4s; }
+.featured-logo-link:nth-child(6) { animation-delay: 0.5s; }
+
 /* Responsive design improvements */
 @media (max-width: 768px) {
-  .articles-grid,
-  .featured-grid {
+  .articles-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  
+  .featured-logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
   
   .article-content {
     padding: 1.5rem;
   }
   
-  .featured-content {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem;
-  }
-  
-  .outlet-logo {
-    align-self: center;
-    margin-bottom: 1rem;
+  .featured-logo {
+    width: 100px;
+    height: 60px;
   }
   
   .article-image {
@@ -555,9 +543,18 @@ nav_order: 3
 }
 
 @media (max-width: 480px) {
-  .article-content,
-  .featured-content {
+  .article-content {
     padding: 1.25rem;
+  }
+  
+  .featured-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .featured-logo {
+    width: 80px;
+    height: 50px;
   }
   
   .outlet-logo {
@@ -592,20 +589,20 @@ nav_order: 3
 
 /* Accessibility improvements */
 .article-card:focus-within,
-.featured-card:focus-within {
+.featured-logo-link:focus {
   outline: 2px solid var(--global-theme-color);
   outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .article-card,
-  .featured-card {
+  .featured-logo-link {
     animation: none;
     transition: none;
   }
   
   .article-card:hover,
-  .featured-card:hover {
+  .featured-logo-link:hover .featured-logo {
     transform: none;
   }
 }
