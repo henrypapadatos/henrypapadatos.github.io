@@ -434,7 +434,7 @@ nav_order: 3
 }
 
 [data-theme="dark"] .outlet-logo {
-  background: rgba(33, 37, 41, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
