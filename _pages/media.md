@@ -190,7 +190,7 @@ nav_order: 3
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+  border-radius: 0px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
@@ -454,7 +454,7 @@ nav_order: 3
 
 [data-theme="dark"] .featured-logo {
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
