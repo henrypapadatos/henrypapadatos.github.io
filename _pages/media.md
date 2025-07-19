@@ -32,9 +32,7 @@ nav_order: 3
                   The Paris AI Summit could be a turning point for global AI governance.
                 </p>
                 <p class="article-meta">
-                  <span class="author">Henry Papadatos and Chloé Touzet</span>
-                  <div class="meta-separator"></div>
-                  <span class="date">February 2025</span>
+                  <span class="author">Henry Papadatos and Chloé Touzet</span><span class="date-connector"> on </span><span class="date">February 2025</span>
                 </p>
               </div>
             </div>
@@ -47,8 +45,8 @@ nav_order: 3
             <div class="article-image">
               <img src="{{ '/assets/img/media/cop.jpg' | relative_url }}" alt="Global AI Standards" class="feature-img">
               <div class="article-overlay">
-                <div class="outlet-logo">
-                  <img src="{{ '/assets/img/media/aifrontiers-logo.svg' | relative_url }}" alt="AI frontiers Logo" class="logo-img">
+                <div class="outlet-logo ai-frontiers">
+                  <img src="{{ '/assets/img/media/aifrontiers-logo-cropped.svg' | relative_url }}" alt="AI frontiers Logo" class="logo-img">
                 </div>
               </div>
             </div>
@@ -59,9 +57,7 @@ nav_order: 3
                   The Code provides a powerful incentive to push frontier developers toward measurably safer practices.
                 </p>
                 <p class="article-meta">
-                  <span class="author">Henry Papadatos</span>
-                  <div class="meta-separator"></div>
-                  <span class="date">July 2025</span>
+                  <span class="author">Henry Papadatos</span><span class="date-connector"> on </span><span class="date">July 2025</span>
                 </p>
               </div>
             </div>
@@ -142,7 +138,7 @@ nav_order: 3
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 300;
   margin-bottom: 3rem;
   color: var(--global-text-color);
@@ -291,11 +287,19 @@ nav_order: 3
 }
 
 .article-overlay .outlet-logo {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 45px;
   background: transparent;
   box-shadow: none;
   padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-overlay .outlet-logo.ai-frontiers {
+  width: 100px;
+  height: 45px;
 }
 
 .outlet-logo {
@@ -384,7 +388,14 @@ nav_order: 3
   font-weight: 400;
 }
 
-.article-meta,
+.article-meta {
+  margin: 0;
+  color: var(--global-text-color-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
 .featured-meta {
   margin: 0;
   color: var(--global-text-color-light);
@@ -401,6 +412,17 @@ nav_order: 3
 }
 
 .date {
+  color: var(--global-text-color-light);
+  font-weight: 400;
+}
+
+.date-connector {
+  color: var(--global-text-color-light);
+  font-weight: 400;
+}
+
+/* Featured card dates keep the pill style */
+.featured-meta .date {
   color: var(--global-theme-color);
   font-weight: 600;
   background: rgba(39, 70, 99, 0.08);
@@ -435,7 +457,7 @@ nav_order: 3
     rgba(38, 152, 186, 0.05) 100%);
 }
 
-[data-theme="dark"] .date {
+[data-theme="dark"] .featured-meta .date {
   background: rgba(38, 152, 186, 0.15);
 }
 
@@ -514,12 +536,17 @@ nav_order: 3
   }
   
   .article-overlay .outlet-logo {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 35px;
+  }
+  
+  .article-overlay .outlet-logo.ai-frontiers {
+    width: 80px;
+    height: 35px;
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   
   .media-coverage {
@@ -543,12 +570,23 @@ nav_order: 3
   }
   
   .article-overlay .outlet-logo {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .article-overlay .outlet-logo.ai-frontiers {
+    width: 70px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 
