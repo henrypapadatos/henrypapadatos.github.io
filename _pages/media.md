@@ -497,17 +497,23 @@ nav_order: 3
 }
 
 .featured-logo-link {
-  animation: fadeInUp 0.6s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.featured-logo-link:nth-child(2) { animation-delay: 0.1s; }
-.featured-logo-link:nth-child(3) { animation-delay: 0.2s; }
-.featured-logo-link:nth-child(4) { animation-delay: 0.3s; }
-.featured-logo-link:nth-child(5) { animation-delay: 0.4s; }
-.featured-logo-link:nth-child(6) { animation-delay: 0.5s; }
-.featured-logo-link:nth-child(7) { animation-delay: 0.6s; }
-.featured-logo-link:nth-child(8) { animation-delay: 0.7s; }
-.featured-logo-link:nth-child(9) { animation-delay: 0.8s; }
+.featured-logo-link.animate {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.featured-logo-link.animate:nth-child(2) { animation-delay: 0.1s; }
+.featured-logo-link.animate:nth-child(3) { animation-delay: 0.2s; }
+.featured-logo-link.animate:nth-child(4) { animation-delay: 0.3s; }
+.featured-logo-link.animate:nth-child(5) { animation-delay: 0.4s; }
+.featured-logo-link.animate:nth-child(6) { animation-delay: 0.5s; }
+.featured-logo-link.animate:nth-child(7) { animation-delay: 0.6s; }
+.featured-logo-link.animate:nth-child(8) { animation-delay: 0.7s; }
+.featured-logo-link.animate:nth-child(9) { animation-delay: 0.8s; }
 
 /* Responsive design improvements */
 @media (max-width: 768px) {
@@ -621,3 +627,28 @@ nav_order: 3
   }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const featuredSection = document.querySelector('.media-section:last-child');
+  const logoLinks = document.querySelectorAll('.featured-logo-link');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        logoLinks.forEach(link => {
+          link.classList.add('animate');
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  
+  if (featuredSection) {
+    observer.observe(featuredSection);
+  }
+});
+</script>
