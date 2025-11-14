@@ -120,6 +120,49 @@ nav_order: 3
       </div>
     </div>
     
+    <!-- Podcasts section -->
+    <div class="media-section">
+      <h2 class="section-title">Podcasts</h2>
+      <div class="articles-grid">
+        <div class="article-card">
+          <div class="article-image video-embed">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/-_qFvPo-EVc" title="Podcast appearance discussing AI governance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="article-content">
+            <div class="article-info">
+              <!-- h3 class="article-title">AI Governance & Standards</h3 -->
+              <p class="article-summary">
+                Podcast in French.
+              </p>
+              <p class="podcast-links">
+                <a href="https://www.youtube.com/watch?v=-_qFvPo-EVc" target="_blank" rel="noopener">Watch on YouTube</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-image video-embed">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/mOlwq47JIeE" title="Podcast appearance discussing AI safety" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="article-content">
+            <div class="article-info">
+              <!--h3 class="article-title">Quantifying AI Risk</h3-->
+              <p class="article-summary">
+                Podcast in French.
+              </p>
+              <p class="podcast-links">
+                <a href="https://www.youtube.com/watch?v=mOlwq47JIeE" target="_blank" rel="noopener">Watch on YouTube</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
 
@@ -280,6 +323,28 @@ nav_order: 3
   transform: scale(1.05);
 }
 
+.article-image.video-embed {
+  height: auto;
+  padding: 0;
+}
+
+.article-image.video-embed .video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.article-image.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .article-overlay {
   position: absolute;
   top: 1rem;
@@ -400,6 +465,34 @@ nav_order: 3
   font-size: 0.95rem;
   font-weight: 500;
   line-height: 1.4;
+}
+
+.podcast-links {
+  margin: 0rem 0 0;
+}
+
+.podcast-links a {
+  font-weight: 600;
+  color: var(--global-theme-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.3s ease;
+}
+
+.podcast-links a::after {
+  content: '↗';
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.podcast-links a:hover {
+  color: var(--global-hover-color);
+}
+
+.podcast-links a:hover::after {
+  transform: translateX(4px);
 }
 
 
@@ -630,8 +723,12 @@ nav_order: 3
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const featuredSection = document.querySelector('.media-section:last-child');
+  const featuredSection = document.querySelector('.featured-logos-grid');
   const logoLinks = document.querySelectorAll('.featured-logo-link');
+  
+  if (!featuredSection || logoLinks.length === 0) {
+    return;
+  }
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -647,8 +744,6 @@ document.addEventListener('DOMContentLoaded', function() {
     rootMargin: '0px 0px -50px 0px'
   });
   
-  if (featuredSection) {
-    observer.observe(featuredSection);
-  }
+  observer.observe(featuredSection);
 });
 </script>

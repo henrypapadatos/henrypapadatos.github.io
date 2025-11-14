@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Managing Director, SaferAI
+subtitle: Executive Director, SaferAI
 
 profile:
   align: left
@@ -18,11 +18,11 @@ Hi, I'm Henry,
 
 As a technical AI risk management expert, my focus lies in addressing the growing gap between rapid AI advancement and our ability to manage its associated risks.
 
-I am the Managing Director of [SaferAI](https://www.safer-ai.org/) where I work on both AI governance and technical solutions to improve the risk management for frontier AI systems.
+I am the Executive Director of [SaferAI](https://www.safer-ai.org/) where I work on both AI governance and technical solutions to improve the risk management for frontier AI systems.
 
 #### Governance
 
-I am contributing to various initiatives in the governance space. I am in an expert working group for the EU AI Act's Codes of Practice, which focuses on general purpose AI models. My working group is focusing on the risk taxonomy and on risk identification and assessment. 
+I am contributing to various initiatives in the governance space. I was in an expert working group for the EU AI Act's Codes of Practice, which focuses on general purpose AI models. My working group was focusing on the risk taxonomy and on risk identification and assessment. 
 
 I also took part in the OECD task force in charge of drafting the G7 Hiroshima AI Process [reporting framework](https://transparency.oecd.ai/). Just before the Paris AI action summit, I advocated for international AI safety standards through an op-ed published in [TIME](https://time.com/7213772/paris-ai-summit-must-set-global-standards/). Most recently, I joined the OECD expert group on AI Risk & Accountability to further inform global governance.
 
