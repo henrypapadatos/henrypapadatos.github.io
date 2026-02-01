@@ -162,7 +162,25 @@ nav_order: 3
         </div>
       </div>
     </div>
-    
+
+    <!-- Quoted In section -->
+    <div class="media-section">
+      <h2 class="section-title">Quoted In</h2>
+      <div class="featured-logos-grid">
+
+        <!-- Guardian logo -->
+        <a href="https://www.theguardian.com/technology/2026/jan/06/leading-ai-expert-delays-timeline-possible-destruction-humanity" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/theguardian-logo.jpg' | relative_url }}" alt="The Guardian Logo" class="featured-logo">
+        </a>
+
+        <!-- MIT Technology Review logo -->
+        <a href="https://www.technologyreview.com/2025/05/30/1117551/this-benchmark-used-reddits-aita-to-test-how-much-ai-models-suck-up-to-us/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/Technology_Review_logo.png' | relative_url }}" alt="MIT Technology Review Logo" class="featured-logo">
+        </a>
+
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -723,16 +741,16 @@ nav_order: 3
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const featuredSection = document.querySelector('.featured-logos-grid');
-  const logoLinks = document.querySelectorAll('.featured-logo-link');
-  
-  if (!featuredSection || logoLinks.length === 0) {
+  const featuredSections = document.querySelectorAll('.featured-logos-grid');
+
+  if (featuredSections.length === 0) {
     return;
   }
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        const logoLinks = entry.target.querySelectorAll('.featured-logo-link');
         logoLinks.forEach(link => {
           link.classList.add('animate');
         });
@@ -743,7 +761,9 @@ document.addEventListener('DOMContentLoaded', function() {
     threshold: 0.2,
     rootMargin: '0px 0px -50px 0px'
   });
-  
-  observer.observe(featuredSection);
+
+  featuredSections.forEach(section => {
+    observer.observe(section);
+  });
 });
 </script>
