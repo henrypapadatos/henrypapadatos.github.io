@@ -6,6 +6,7 @@
 
 body {
   text-align: justify;
+  line-height: 1.7;
 }
 
 h1,
@@ -52,6 +53,7 @@ table {
 a,
 table.table a {
   color: var(--global-theme-color);
+  transition: color 0.2s ease;
 
   &:hover {
     color: var(--global-theme-color);
