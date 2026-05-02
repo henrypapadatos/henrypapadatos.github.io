@@ -190,20 +190,6 @@ nav_order: 3
   position: relative;
 }
 
-.media-coverage::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(135deg, 
-    rgba(39, 70, 99, 0.03) 0%, 
-    rgba(100, 125, 153, 0.02) 50%, 
-    rgba(239, 217, 196, 0.03) 100%);
-  z-index: -1;
-}
-
 .media-section {
   margin-bottom: 4rem;
   position: relative;
@@ -555,13 +541,6 @@ nav_order: 3
     rgba(38, 152, 186, 0.05) 100%);
 }
 
-
-[data-theme="dark"] .media-coverage::before {
-  background: linear-gradient(135deg, 
-    rgba(38, 152, 186, 0.05) 0%, 
-    rgba(38, 152, 186, 0.02) 50%, 
-    rgba(33, 37, 41, 0.03) 100%);
-}
 
 [data-theme="dark"] .featured-logo {
   background: rgba(255, 255, 255, 0.9);

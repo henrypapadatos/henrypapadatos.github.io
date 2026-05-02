@@ -804,6 +804,12 @@ footer.sticky-bottom {
             color: var(--global-text-color);
             border-bottom: 1px dashed var(--global-text-color);
           }
+
+          em {
+            color: var(--global-text-color);
+            border-bottom: 1px solid var(--global-text-color);
+            font-style: normal;
+          }
         }
       }
 
