@@ -163,6 +163,8 @@ nav_order: 3
       </div>
     </div>
 
+    {% include wallpaper.liquid %}
+
     <!-- Quoted In section -->
     <div class="media-section">
       <h2 class="section-title">Quoted In</h2>

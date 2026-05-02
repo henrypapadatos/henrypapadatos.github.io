@@ -15,3 +15,5 @@ nav_order: 2
 {% bibliography %}
 
 </div>
+
+{% include wallpaper.liquid %}

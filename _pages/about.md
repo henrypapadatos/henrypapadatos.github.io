@@ -33,3 +33,5 @@ On the technical front, I developed an [AI risk management ratings system for AI
 I am now working on improving risk modeling and quantitative risk assessment for AI-enabled cyber risks. In this effort, I recently published a [paper](https://arxiv.org/abs/2503.04299) addressing a key challenge in AI risk assessment: connecting empirical measures of AI capabilities to concrete estimates of real-world harms.
 
 Prior to joining SaferAI, I conducted technical research on large language models alignment at the [Center for Human-Compatible AI](https://humancompatible.ai/) at UC Berkeley.
+
+{% include wallpaper.liquid %}
