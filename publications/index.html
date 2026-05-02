@@ -218,18 +218,21 @@
     if (mobileMQ.matches) return;
     mouse.x = e.clientX * dpr;
     mouse.y = e.clientY * dpr;
+    wake(800);
   });
   window.addEventListener('click', e => {
     if (e.target.closest('a, button, input, textarea, select')) return;
     click.x = e.clientX * dpr;
     click.y = e.clientY * dpr;
     click.time = (performance.now() - startTime) / 1000;
+    wake(2500); // click ripple lasts ~2s, plus settle buffer
   });
   window.addEventListener('resize', () => {
     dpr = window.devicePixelRatio || 1;
     canvas.width = window.innerWidth * dpr;
     canvas.height = window.innerHeight * dpr;
     buildHexMesh();
+    wake(1500);
   });
 
   function frame() {
@@ -271,24 +274,48 @@
       p.y += (ty - p.y) * 0.2;
     }
 
+    // Optimization #1: batch all edges into a single path + single stroke()
     ctx.lineWidth = 0.5 * dpr;
     ctx.strokeStyle = `rgba(${colorRgb}, ${PRESET.lineAlpha * intensity})`;
+    ctx.beginPath();
     for (const [a, b] of edges) {
       const pa = particles[a], pb = particles[b];
-      ctx.beginPath();
       ctx.moveTo(pa.x, pa.y);
       ctx.lineTo(pb.x, pb.y);
-      ctx.stroke();
     }
-    ctx.fillStyle = `rgba(${colorRgb}, ${0.7 * intensity})`;
-    for (const p of particles) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, PRESET.particleSize * dpr, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    ctx.stroke();
 
-    requestAnimationFrame(frame);
+    // Particles: also a single path
+    ctx.fillStyle = `rgba(${colorRgb}, ${0.7 * intensity})`;
+    const r = PRESET.particleSize * dpr;
+    ctx.beginPath();
+    for (const p of particles) {
+      ctx.moveTo(p.x + r, p.y);
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+    }
+    ctx.fill();
+
+    // Optimization #3: stop rAF when nothing is changing.
+    // Wake on mouse/click; sleep when wakeUntil expires AND mesh is settled.
+    const settled = Math.abs(mouse.x - smoothMouse.x) < 0.3
+                 && Math.abs(mouse.y - smoothMouse.y) < 0.3;
+    if (performance.now() < wakeUntil || !settled) {
+      requestAnimationFrame(frame);
+    } else {
+      isLooping = false;
+    }
   }
-  requestAnimationFrame(frame);
+
+  let wakeUntil = 0;
+  let isLooping = false;
+  function wake(durationMs) {
+    wakeUntil = Math.max(wakeUntil, performance.now() + durationMs);
+    if (!isLooping) {
+      isLooping = true;
+      requestAnimationFrame(frame);
+    }
+  }
+  // Initial paint + 1.5s settle (mesh particles need a few frames to converge)
+  wake(1500);
 })();
 </script> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Henry Papadatos. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?c999e8c5281874b7534e3352f835d4c3" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?b977fe0c21b2118ed853308b1b923969"></script> <script src="/assets/js/no_defer.js?699fa7cbe3b29f831db7d5250ba3203a"></script> <script defer src="/assets/js/common.js?d3a25b46bbd2e0a751a27b173abc6e5f"></script> <script defer src="/assets/js/copy_code.js?d359581efc54b08366f9ef8219e6e511" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?25eff8ff4144a010e4ad7b31403102cf"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?04761245f225e3ad9e5e3f875d4e1074"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?b78cb42895d74e4fd6de6f633edcf181" type="text/javascript"></script> </body> </html>

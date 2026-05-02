@@ -125,18 +125,21 @@
     if (mobileMQ.matches) return;
     mouse.x = e.clientX * dpr;
     mouse.y = e.clientY * dpr;
+    wake(800);
   });
   window.addEventListener('click', e => {
     if (e.target.closest('a, button, input, textarea, select')) return;
     click.x = e.clientX * dpr;
     click.y = e.clientY * dpr;
     click.time = (performance.now() - startTime) / 1000;
+    wake(2500); // click ripple lasts ~2s, plus settle buffer
   });
   window.addEventListener('resize', () => {
     dpr = window.devicePixelRatio || 1;
     canvas.width = window.innerWidth * dpr;
     canvas.height = window.innerHeight * dpr;
     buildHexMesh();
+    wake(1500);
   });
 
   function frame() {
@@ -178,25 +181,49 @@
       p.y += (ty - p.y) * 0.2;
     }
 
+    // Optimization #1: batch all edges into a single path + single stroke()
     ctx.lineWidth = 0.5 * dpr;
     ctx.strokeStyle = `rgba(${colorRgb}, ${PRESET.lineAlpha * intensity})`;
+    ctx.beginPath();
     for (const [a, b] of edges) {
       const pa = particles[a], pb = particles[b];
-      ctx.beginPath();
       ctx.moveTo(pa.x, pa.y);
       ctx.lineTo(pb.x, pb.y);
-      ctx.stroke();
     }
-    ctx.fillStyle = `rgba(${colorRgb}, ${0.7 * intensity})`;
-    for (const p of particles) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, PRESET.particleSize * dpr, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    ctx.stroke();
 
-    requestAnimationFrame(frame);
+    // Particles: also a single path
+    ctx.fillStyle = `rgba(${colorRgb}, ${0.7 * intensity})`;
+    const r = PRESET.particleSize * dpr;
+    ctx.beginPath();
+    for (const p of particles) {
+      ctx.moveTo(p.x + r, p.y);
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+    }
+    ctx.fill();
+
+    // Optimization #3: stop rAF when nothing is changing.
+    // Wake on mouse/click; sleep when wakeUntil expires AND mesh is settled.
+    const settled = Math.abs(mouse.x - smoothMouse.x) < 0.3
+                 && Math.abs(mouse.y - smoothMouse.y) < 0.3;
+    if (performance.now() < wakeUntil || !settled) {
+      requestAnimationFrame(frame);
+    } else {
+      isLooping = false;
+    }
   }
-  requestAnimationFrame(frame);
+
+  let wakeUntil = 0;
+  let isLooping = false;
+  function wake(durationMs) {
+    wakeUntil = Math.max(wakeUntil, performance.now() + durationMs);
+    if (!isLooping) {
+      isLooping = true;
+      requestAnimationFrame(frame);
+    }
+  }
+  // Initial paint + 1.5s settle (mesh particles need a few frames to converge)
+  wake(1500);
 })();
 </script> <div class="media-section"> <h2 class="section-title">Quoted In</h2> <div class="featured-logos-grid"> <a href="https://www.theguardian.com/technology/2026/jan/06/leading-ai-expert-delays-timeline-possible-destruction-humanity" target="_blank" class="featured-logo-link" rel="external nofollow noopener"> <img src="/assets/img/media/theguardian-logo.jpg" alt="The Guardian Logo" class="featured-logo"> </a> <a href="https://www.technologyreview.com/2025/05/30/1117551/this-benchmark-used-reddits-aita-to-test-how-much-ai-models-suck-up-to-us/" target="_blank" class="featured-logo-link" rel="external nofollow noopener"> <img src="/assets/img/media/Technology_Review_logo.png" alt="MIT Technology Review Logo" class="featured-logo"> </a> </div> </div> </div> </div> <style>.media-coverage{padding:3rem 0;position:relative}.media-section{margin-bottom:4rem;position:relative}.section-title{font-size:2rem;font-weight:300;margin-bottom:3rem;color:var(--global-text-color);position:relative;display:inline-block;letter-spacing:-0.02em}.section-title::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:3px;background:linear-gradient(90deg,var(--global-theme-color),var(--global-hover-color));border-radius:2px}.articles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:2rem}.featured-logos-grid{display:flex;flex-wrap:wrap;gap:3rem;margin-top:3rem;align-items:center;justify-content:center;max-width:100%}.article-card{background:rgba(255,255,255,0.6);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:0;overflow:hidden;transition:all .4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 4px 20px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.05);position:relative;display:flex;flex-direction:column}.featured-logo-link{display:block;transition:all .3s ease;text-decoration:none}.featured-logo{width:120px;height:80px;object-fit:contain;opacity:.7;transition:all .3s ease;filter:grayscale(100%)}.featured-logo-link:hover .featured-logo{opacity:1;transform:scale(1.1);filter:grayscale(0)}.article-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--global-theme-color),var(--global-hover-color));opacity:0;transition:opacity .3s ease}.article-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,0.12),0 8px 16px rgba(0,0,0,0.08);border-color:rgba(255,255,255,0.4)}.article-card:hover::before{opacity:1}.article-link{text-decoration:none;color:inherit;display:block;height:100%}.article-content{padding:2rem;flex:1;display:flex;flex-direction:column}.article-image{position:relative;width:100%;height:200px;overflow:hidden}.feature-img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}.article-card:hover .feature-img{transform:scale(1.05)}.article-image.video-embed{height:auto;padding:0}.article-image.video-embed .video-wrapper{position:relative;width:100%;padding-bottom:56.25%;background:rgba(0,0,0,0.8);overflow:hidden}.article-image.video-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}.article-overlay{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.95);border-radius:12px;padding:.5rem;box-shadow:0 4px 12px rgba(0,0,0,0.15);backdrop-filter:blur(8px);transition:all .3s ease}.article-card:hover .article-overlay{background:rgba(255,255,255,1);transform:scale(1.05)}.article-overlay .outlet-logo{width:70px;height:45px;background:transparent;box-shadow:none;padding:.25rem;display:flex;align-items:center;justify-content:center}.article-overlay .outlet-logo.ai-frontiers{width:100px;height:45px}.outlet-logo{flex-shrink:0;width:70px;height:70px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.9);border-radius:12px;padding:.75rem;box-shadow:0 8px 16px rgba(0,0,0,0.1),0 2px 4px rgba(0,0,0,0.06);transition:all .3s ease;position:relative;overflow:hidden}.outlet-logo::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(39,70,99,0.05) 0%,rgba(100,125,153,0.03) 100%);opacity:0;transition:opacity .3s ease}.article-card:hover .outlet-logo{transform:scale(1.1);box-shadow:0 12px 24px rgba(0,0,0,0.15),0 4px 8px rgba(0,0,0,0.08)}.article-card:hover .outlet-logo::before{opacity:1}.logo-img{max-width:100%;max-height:100%;object-fit:contain;z-index:1;position:relative}.article-info{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}.article-title{font-size:1.25rem;font-weight:600;margin:0 0 .75rem 0;line-height:1.3;color:var(--global-text-color);letter-spacing:-0.01em;transition:color .3s ease}.article-card:hover .article-title{color:var(--global-theme-color)}.article-summary{font-size:.95rem;line-height:1.6;color:var(--global-text-color-light);margin:0 0 1rem 0;font-weight:400}.article-meta{margin:0;color:var(--global-text-color-light);font-size:.95rem;font-weight:500;line-height:1.4}.podcast-links{margin:0rem 0 0}.podcast-links a{font-weight:600;color:var(--global-theme-color);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;transition:color .3s ease}.podcast-links a::after{content:'↗';font-size:.9rem;transition:transform .2s ease}.podcast-links a:hover{color:var(--global-hover-color)}.podcast-links a:hover::after{transform:translateX(4px)}.author{font-weight:600;color:var(--global-theme-color)}.date{color:var(--global-text-color-light);font-weight:400}.date-connector{color:var(--global-text-color-light);font-weight:400}.meta-separator{width:4px;height:4px;background:var(--global-text-color-light);border-radius:50%;opacity:.6}[data-theme="dark"] .article-card{background:rgba(33,37,41,0.8);border-color:rgba(255,255,255,0.1)}
 [data-theme="dark"] .outlet-logo{background:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.1)}[data-theme="dark"] .outlet-logo::before{background:linear-gradient(135deg,rgba(38,152,186,0.1) 0%,rgba(38,152,186,0.05) 100%)}[data-theme="dark"] .featured-logo{background:rgba(255,255,255,0.9);border-radius:0;padding:.5rem;box-shadow:0 4px 12px rgba(0,0,0,0.3)}[data-theme="dark"] .featured-logo-link:hover .featured-logo{background:rgba(255,255,255,1);box-shadow:0 6px 20px rgba(0,0,0,0.4)}[data-theme="dark"] .article-overlay{background:rgba(33,37,41,0.95)}[data-theme="dark"] .article-card:hover .article-overlay{background:rgba(33,37,41,1)}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}.article-card{animation:fadeInUp .6s ease-out}.article-card:nth-child(2){animation-delay:.1s}.article-card:nth-child(3){animation-delay:.2s}.featured-logo-link{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}.featured-logo-link.animate{animation:fadeInUp .6s ease-out forwards}.featured-logo-link.animate:nth-child(2){animation-delay:.1s}.featured-logo-link.animate:nth-child(3){animation-delay:.2s}.featured-logo-link.animate:nth-child(4){animation-delay:.3s}.featured-logo-link.animate:nth-child(5){animation-delay:.4s}.featured-logo-link.animate:nth-child(6){animation-delay:.5s}.featured-logo-link.animate:nth-child(7){animation-delay:.6s}.featured-logo-link.animate:nth-child(8){animation-delay:.7s}.featured-logo-link.animate:nth-child(9){animation-delay:.8s}@media(max-width:768px){.articles-grid{grid-template-columns:1fr;gap:1.5rem}.featured-logos-grid{gap:2rem}.article-content{padding:1.5rem}.featured-logo{width:100px;height:60px}.article-image{height:160px}.article-overlay{top:.75rem;right:.75rem}.article-overlay .outlet-logo{width:55px;height:35px}.article-overlay .outlet-logo.ai-frontiers{width:80px;height:35px}.section-title{font-size:1.75rem}.media-coverage{padding:2rem 0}}@media(max-width:480px){.article-content{padding:1.25rem}.featured-logos-grid{gap:1.5rem}.featured-logo{width:80px;height:50px}.outlet-logo{width:60px;height:60px}.article-image{height:140px}.article-overlay .outlet-logo{width:50px;height:30px;display:flex;align-items:center;justify-content:center}.article-overlay .outlet-logo.ai-frontiers{width:70px;height:30px;display:flex;align-items:center;justify-content:center}.section-title{font-size:1.5rem}}.article-card:focus-within,.featured-logo-link:focus{outline:2px solid var(--global-theme-color);outline-offset:2px}@media(prefers-reduced-motion:reduce){.article-card,.featured-logo-link{animation:none;transition:none}.article-card:hover,.featured-logo-link:hover .featured-logo{transform:none}}</style> <script>
