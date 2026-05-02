@@ -93,4 +93,190 @@
   <span class="na">archiveprefix</span> <span class="p">=</span> <span class="s">{arXiv}</span><span class="p">,</span>
   <span class="na">primaryclass</span> <span class="p">=</span> <span class="s">{cs.AI}</span><span class="p">,</span>
   <span class="na">journal</span> <span class="p">=</span> <span class="s">{SoLaR workshop, NeurIPS}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure> </div> </div> </div> </li> <li> <div class="row"> <div id="papadatos2024llmjudge" class="col-sm-12 bib-entry"> <div class="pub-type">Blog post</div> <div class="title">Your LLM Judge may be biased</div> <div class="author"> <em>Henry Papadatos</em>, and Rachel Freedman </div> <div class="periodical"> 2024 </div> <div class="periodical"> </div> <div class="links"> <a href="https://www.alignmentforum.org/posts/S4aGGF2cWi5dHtJab/your-llm-judge-may-be-biased" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Blog</a> </div> </div> </div> </li> </ol> </div> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Henry Papadatos. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?c999e8c5281874b7534e3352f835d4c3" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?b977fe0c21b2118ed853308b1b923969"></script> <script src="/assets/js/no_defer.js?699fa7cbe3b29f831db7d5250ba3203a"></script> <script defer src="/assets/js/common.js?d3a25b46bbd2e0a751a27b173abc6e5f"></script> <script defer src="/assets/js/copy_code.js?d359581efc54b08366f9ef8219e6e511" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?25eff8ff4144a010e4ad7b31403102cf"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?04761245f225e3ad9e5e3f875d4e1074"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?b78cb42895d74e4fd6de6f633edcf181" type="text/javascript"></script> </body> </html>
+<span class="p">}</span></code></pre></figure> </div> </div> </div> </li> <li> <div class="row"> <div id="papadatos2024llmjudge" class="col-sm-12 bib-entry"> <div class="pub-type">Blog post</div> <div class="title">Your LLM Judge may be biased</div> <div class="author"> <em>Henry Papadatos</em>, and Rachel Freedman </div> <div class="periodical"> 2024 </div> <div class="periodical"> </div> <div class="links"> <a href="https://www.alignmentforum.org/posts/S4aGGF2cWi5dHtJab/your-llm-judge-may-be-biased" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Blog</a> </div> </div> </div> </li> </ol> </div> <style>body{background-color:transparent!important}#wp-bg-host{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;background:var(--global-bg-color)}#wp-bg-host canvas{display:block;width:100%;height:100%}</style> <div id="wp-bg-host"></div> <script>
+(function() {
+  const PRESET = {
+    gridSize: 100,
+    gridSizeMobile: 18,
+    warpStrength: 18,
+    warpRadius: 142,
+    particleSize: 0.45,
+    lineAlpha: 0.11
+  };
+
+  const mobileMQ = window.matchMedia('(max-width: 768px)');
+  function effectiveGridSize() {
+    return mobileMQ.matches ? PRESET.gridSizeMobile : PRESET.gridSize;
+  }
+  // Rebuild mesh when crossing the mobile breakpoint
+  mobileMQ.addEventListener('change', () => {
+    if (typeof buildHexMesh === 'function') buildHexMesh();
+  });
+
+  const THEME_LIGHT = { bg: '#efd9c4', primary: '#1a5a8a', intensity: 0.73 };
+  const THEME_DARK  = { bg: '#1c1c1d', primary: '#2698ba', intensity: 1.2 };
+
+  function hexToRgb(hex) {
+    const v = hex.replace('#', '');
+    return [
+      parseInt(v.slice(0,2), 16),
+      parseInt(v.slice(2,4), 16),
+      parseInt(v.slice(4,6), 16)
+    ];
+  }
+
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? THEME_DARK : THEME_LIGHT;
+  }
+  let theme = currentTheme();
+  let primaryRgb = hexToRgb(theme.primary);
+  let colorRgb = `${primaryRgb[0]}, ${primaryRgb[1]}, ${primaryRgb[2]}`;
+
+  const host = document.getElementById('wp-bg-host');
+  if (!host) return;
+  host.style.background = theme.bg;
+
+  const themeObserver = new MutationObserver(() => {
+    theme = currentTheme();
+    primaryRgb = hexToRgb(theme.primary);
+    colorRgb = `${primaryRgb[0]}, ${primaryRgb[1]}, ${primaryRgb[2]}`;
+    host.style.background = theme.bg;
+  });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  let dpr = window.devicePixelRatio || 1;
+  const canvas = document.createElement('canvas');
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let particles = [];
+  let edges = [];
+
+  function buildHexMesh() {
+    particles = [];
+    edges = [];
+    const w = canvas.width, h = canvas.height;
+    const sqrt3 = Math.sqrt(3);
+    const hexCols = Math.max(2, Math.round(effectiveGridSize() / 2));
+    const s = w / (hexCols * sqrt3);
+    const hexW = sqrt3 * s;
+    const rowStep = 1.5 * s;
+    const hexRows = Math.ceil(h / rowStep) + 2;
+
+    const vertexMap = new Map();
+    function addVertex(x, y) {
+      const key = `${Math.round(x)},${Math.round(y)}`;
+      if (vertexMap.has(key)) return vertexMap.get(key);
+      const idx = particles.length;
+      vertexMap.set(key, idx);
+      particles.push({ x, y, ox: x, oy: y });
+      return idx;
+    }
+    const edgeSet = new Set();
+    function addEdge(a, b) {
+      const k = a < b ? `${a}-${b}` : `${b}-${a}`;
+      if (edgeSet.has(k)) return;
+      edgeSet.add(k);
+      edges.push([a, b]);
+    }
+    for (let hr = -1; hr <= hexRows; hr++) {
+      for (let hc = -1; hc <= hexCols + 1; hc++) {
+        const cx = hc * hexW + (Math.abs(hr) % 2 !== 0 ? hexW / 2 : 0);
+        const cy = hr * rowStep;
+        const vs = [];
+        for (let k = 0; k < 6; k++) {
+          const angle = Math.PI / 6 + k * Math.PI / 3;
+          vs.push(addVertex(cx + Math.cos(angle) * s, cy + Math.sin(angle) * s));
+        }
+        for (let k = 0; k < 6; k++) addEdge(vs[k], vs[(k + 1) % 6]);
+      }
+    }
+  }
+
+  buildHexMesh();
+
+  let mouse = { x: window.innerWidth * 0.5 * dpr, y: window.innerHeight * 0.5 * dpr };
+  let smoothMouse = { x: mouse.x, y: mouse.y };
+  let click = { x: -1e6, y: -1e6, time: -100 };
+  const startTime = performance.now();
+
+  window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX * dpr;
+    mouse.y = e.clientY * dpr;
+  });
+  window.addEventListener('click', e => {
+    if (e.target.closest('a, button, input, textarea, select')) return;
+    click.x = e.clientX * dpr;
+    click.y = e.clientY * dpr;
+    click.time = (performance.now() - startTime) / 1000;
+  });
+  window.addEventListener('resize', () => {
+    dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    buildHexMesh();
+  });
+
+  function frame() {
+    const t = (performance.now() - startTime) / 1000;
+    smoothMouse.x += (mouse.x - smoothMouse.x) * 0.1;
+    smoothMouse.y += (mouse.y - smoothMouse.y) * 0.1;
+
+    const w = canvas.width, h = canvas.height;
+    const warpStrength = PRESET.warpStrength * dpr;
+    const warpRadius = PRESET.warpRadius * dpr;
+    const wr2 = warpRadius * warpRadius * 0.5;
+    const intensity = theme.intensity;
+    const clickAge = t - click.time;
+
+    ctx.fillStyle = theme.bg;
+    ctx.fillRect(0, 0, w, h);
+
+    for (const p of particles) {
+      const dx = p.ox - smoothMouse.x, dy = p.oy - smoothMouse.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      let tx = p.ox, ty = p.oy;
+      if (dist < warpRadius) {
+        const fall = Math.exp(-(dist*dist) / wr2);
+        tx += (dx / (dist + 0.01)) * fall * warpStrength;
+        ty += (dy / (dist + 0.01)) * fall * warpStrength;
+      }
+      if (clickAge >= 0 && clickAge < 2) {
+        const cdx = p.ox - click.x, cdy = p.oy - click.y;
+        const cdist = Math.sqrt(cdx*cdx + cdy*cdy);
+        const wave = clickAge * 700 * dpr;
+        const diff = Math.abs(cdist - wave);
+        if (diff < 100 * dpr) {
+          const f = (1 - diff / (100 * dpr)) * (1 - clickAge / 2) * warpStrength * 0.6;
+          tx += (cdx / (cdist + 0.01)) * f;
+          ty += (cdy / (cdist + 0.01)) * f;
+        }
+      }
+      p.x += (tx - p.x) * 0.2;
+      p.y += (ty - p.y) * 0.2;
+    }
+
+    ctx.lineWidth = 0.5 * dpr;
+    ctx.strokeStyle = `rgba(${colorRgb}, ${PRESET.lineAlpha * intensity})`;
+    for (const [a, b] of edges) {
+      const pa = particles[a], pb = particles[b];
+      ctx.beginPath();
+      ctx.moveTo(pa.x, pa.y);
+      ctx.lineTo(pb.x, pb.y);
+      ctx.stroke();
+    }
+    ctx.fillStyle = `rgba(${colorRgb}, ${0.7 * intensity})`;
+    for (const p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, PRESET.particleSize * dpr, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Henry Papadatos. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?c999e8c5281874b7534e3352f835d4c3" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?b977fe0c21b2118ed853308b1b923969"></script> <script src="/assets/js/no_defer.js?699fa7cbe3b29f831db7d5250ba3203a"></script> <script defer src="/assets/js/common.js?d3a25b46bbd2e0a751a27b173abc6e5f"></script> <script defer src="/assets/js/copy_code.js?d359581efc54b08366f9ef8219e6e511" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?25eff8ff4144a010e4ad7b31403102cf"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?04761245f225e3ad9e5e3f875d4e1074"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?b78cb42895d74e4fd6de6f633edcf181" type="text/javascript"></script> </body> </html>
