@@ -96,9 +96,9 @@
 <span class="p">}</span></code></pre></figure> </div> </div> </div> </li> <li> <div class="row"> <div id="papadatos2024llmjudge" class="col-sm-12 bib-entry"> <div class="pub-type">Blog post</div> <div class="title">Your LLM Judge may be biased</div> <div class="author"> <em>Henry Papadatos</em>, and Rachel Freedman </div> <div class="periodical"> 2024 </div> <div class="periodical"> </div> <div class="links"> <a href="https://www.alignmentforum.org/posts/S4aGGF2cWi5dHtJab/your-llm-judge-may-be-biased" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Blog</a> </div> </div> </div> </li> </ol> </div> <style>body{background-color:transparent!important}#wp-bg-host{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;background:var(--global-bg-color)}#wp-bg-host canvas{display:block;width:100%;height:100%}</style> <div id="wp-bg-host"></div> <script>
 (function() {
   const PRESET = {
-    gridSize: 100,
+    gridSize: 80,
     gridSizeMobile: 18,
-    warpStrength: 18,
+    warpStrength: 7,
     warpRadius: 142,
     particleSize: 0.45,
     lineAlpha: 0.11
@@ -113,8 +113,8 @@
     if (typeof buildHexMesh === 'function') buildHexMesh();
   });
 
-  const THEME_LIGHT = { bg: '#efd9c4', primary: '#1a5a8a', intensity: 0.73 };
-  const THEME_DARK  = { bg: '#1c1c1d', primary: '#2698ba', intensity: 1.2 };
+  const THEME_LIGHT = { bg: '#efd9c4', primary: '#1a5a8a', intensity: 0.4 };
+  const THEME_DARK  = { bg: '#1c1c1d', primary: '#2698ba', intensity: 0.8 };
 
   function hexToRgb(hex) {
     const v = hex.replace('#', '');
