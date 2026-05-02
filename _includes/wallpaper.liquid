@@ -16,9 +16,9 @@
 <script>
 (function() {
   const PRESET = {
-    gridSize: 100,
+    gridSize: 80,
     gridSizeMobile: 18,
-    warpStrength: 18,
+    warpStrength: 7,
     warpRadius: 142,
     particleSize: 0.45,
     lineAlpha: 0.11
@@ -33,8 +33,8 @@
     if (typeof buildHexMesh === 'function') buildHexMesh();
   });
 
-  const THEME_LIGHT = { bg: '#efd9c4', primary: '#1a5a8a', intensity: 0.73 };
-  const THEME_DARK  = { bg: '#1c1c1d', primary: '#2698ba', intensity: 1.2 };
+  const THEME_LIGHT = { bg: '#efd9c4', primary: '#1a5a8a', intensity: 0.4 };
+  const THEME_DARK  = { bg: '#1c1c1d', primary: '#2698ba', intensity: 0.8 };
 
   function hexToRgb(hex) {
     const v = hex.replace('#', '');
