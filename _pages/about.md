@@ -29,16 +29,25 @@ I am the Executive Director of [SaferAI](https://www.safer-ai.org/) where I work
 
 #### Governance
 
-I am contributing to various initiatives in the governance space. I was in an expert working group for the EU AI Act's Codes of Practice, which focuses on general purpose AI models. My working group was focusing on the risk taxonomy and on risk identification and assessment. 
+I am contributing to various initiatives in the governance space. I was in an expert working group for the EU AI Act's General-Purpose AI Code of Practice, focused on the risk taxonomy and on risk identification and assessment. My team took part in all four working groups.
 
-I also took part in the OECD task force in charge of drafting the G7 Hiroshima AI Process [reporting framework](https://transparency.oecd.ai/). Just before the Paris AI action summit, I advocated for international AI safety standards through an op-ed published in [TIME](https://time.com/7213772/paris-ai-summit-must-set-global-standards/). Most recently, I joined the OECD expert group on AI Risk & Accountability to further inform global governance.
+I also took part in the OECD task force in charge of drafting the G7 Hiroshima AI Process [reporting framework](https://transparency.oecd.ai/). Just before the Paris AI action summit, I advocated for international AI safety standards through an op-ed published in [TIME](https://time.com/7213772/paris-ai-summit-must-set-global-standards/).
 
 #### Technical research
 
-On the technical front, I developed an [AI risk management ratings system for AI developers](https://ratings.safer-ai.org/), which has been featured in [TIME](https://time.com/7026972/saferai-study-xai-meta/) and [Euractiv](https://www.euractiv.com/section/digital/news/top-ai-companies-suffer-from-poor-ai-risk-management-says-french-non-profit/). I then published a comprehensive [AI risk management framework](https://arxiv.org/abs/2502.06656) that integrates current AI practices with proven risk management strategies from other industries. 
+My team and I are building Europe's capacity to evaluate frontier AI, working directly with model developers to evaluate their systems.
 
-I am now working on improving risk modeling and quantitative risk assessment for AI-enabled cyber risks. In this effort, I recently published a [paper](https://arxiv.org/abs/2503.04299) addressing a key challenge in AI risk assessment: connecting empirical measures of AI capabilities to concrete estimates of real-world harms.
+We also model AI risks across cyber, CBRN, and loss of control, with several AI safety institutes and the European Commission. Our [work](https://arxiv.org/abs/2503.04299) connects empirical measures of AI capabilities to estimates of real-world harm. 
+
+We built an [AI risk management tracker for AI developers](https://ratings.safer-ai.org/), featured in [TIME](https://time.com/7026972/saferai-study-xai-meta/) and [Euractiv](https://www.euractiv.com/section/digital/news/top-ai-companies-suffer-from-poor-ai-risk-management-says-french-non-profit/), then a [risk management framework](https://arxiv.org/abs/2502.06656) that brings proven practices from other industries into AI.
+
 
 Prior to joining SaferAI, I conducted technical research on large language models alignment at the [Center for Human-Compatible AI](https://humancompatible.ai/) at UC Berkeley.
+
+#### Selected publications
+
+{% include selected_papers.liquid %}
+
+<p class="all-publications-link"><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
 
 {% include wallpaper.liquid %}
