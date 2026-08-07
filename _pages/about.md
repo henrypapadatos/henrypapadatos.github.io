@@ -20,6 +20,13 @@ As a technical AI risk management expert, my focus lies in addressing the growin
 
 I am the Executive Director of [SaferAI](https://www.safer-ai.org/) where I work on both AI governance and technical solutions to improve the risk management for frontier AI systems.
 
+<!--
+  NOTE: on screens >= 576px this block is vertically aligned with the profile
+  picture by a hand-tuned `padding-top` on `.current-roles` in _sass/_base.scss,
+  calibrated to the intro text above wrapping to 5 lines. If you edit the intro
+  paragraphs (or the entries below) and the line count changes, that padding
+  needs re-tuning — see the comment on the rule for how much per line.
+-->
 <div class="current-roles">
   <h4 id="appointments">Appointments</h4>
   <p>Member, <a href="https://digital-strategy.ec.europa.eu/en/policies/ai-advisory-forum">EU AI Act Advisory Forum</a></p>

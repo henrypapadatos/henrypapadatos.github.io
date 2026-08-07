@@ -72,6 +72,11 @@ nav_order: 3
       <h2 class="section-title">Work Featured In</h2>
       <div class="featured-logos-grid">
         
+        <!-- techcrunch logo (GLM evaluation) -->
+        <a href="https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/techcrunch_logo.png' | relative_url }}" alt="Techcrunch Logo" class="featured-logo">
+        </a>
+
         <!-- TIME logo 1 -->
         <a href="https://time.com/7302757/anthropic-xai-meta-openai-risk-management-2/" target="_blank" class="featured-logo-link">
           <img src="{{ '/assets/img/media/time-logo.png' | relative_url }}" alt="TIME Logo" class="featured-logo">

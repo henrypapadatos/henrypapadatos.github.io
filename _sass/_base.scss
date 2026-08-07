@@ -241,8 +241,55 @@ ul.task-list input[type="checkbox"] {
   top: -0.3rem;
 }
 
+// Breathing room above each section heading. This is `padding` rather than
+// `margin` on purpose: margins would collapse with the preceding paragraph's
+// margin-bottom (and not collapse on the cleared first heading), which would
+// make the gaps uneven between sections.
+.about-content > h4 {
+  padding-top: 1.5rem;
+}
+
+// On wider screens, start the section headings below the profile picture
+// instead of letting them wrap alongside it.
+@media (min-width: 576px) {
+  .about-content > h4 {
+    clear: left;
+  }
+}
+
+.about-content .publications {
+  margin-top: 1rem;
+
+  // Indent the entries on wider screens so they read as a list under the heading.
+  @media (min-width: 576px) {
+    padding-left: 2rem;
+  }
+}
+
+.all-publications-link {
+  margin-top: 1.5rem;
+}
+
 .current-roles {
-  margin-bottom: 1.5rem;
+  // Kept small so the gap above "Governance" is driven by the bottom of the
+  // picture, matching the gap above the other section headings.
+  margin-bottom: 0.75rem;
+
+  // On wider screens the "Appointments" block sits next to the profile picture:
+  // push it down so its last line ends level with the bottom of the picture.
+  //
+  // HAND-TUNED VALUE — this is not self-adjusting. It assumes the current intro
+  // in _pages/about.md (the "Hi, I'm Henry," line plus the two paragraphs above
+  // the block) wraps to 5 lines total, and that "Appointments" holds 3 entries.
+  // If any of that text is edited, added to, or reworded so the line count
+  // changes, this padding must be re-measured: each wrapped line is ~27px
+  // (1rem / line-height 1.7), so adjust by ~1.7rem per line gained or lost —
+  // less padding if the text above grows, more if it shrinks. Verify by
+  // screenshotting the page at >= 992px and checking that the bottom of the
+  // "Expert, ISO/IEC ..." line meets the bottom edge of the photo.
+  @media (min-width: 576px) {
+    padding-top: 2.75rem;
+  }
 
   p {
     margin-bottom: 0.15rem;
