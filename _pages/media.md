@@ -601,14 +601,8 @@ nav_order: 3
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.featured-logo-link.animate:nth-child(2) { animation-delay: 0.1s; }
-.featured-logo-link.animate:nth-child(3) { animation-delay: 0.2s; }
-.featured-logo-link.animate:nth-child(4) { animation-delay: 0.3s; }
-.featured-logo-link.animate:nth-child(5) { animation-delay: 0.4s; }
-.featured-logo-link.animate:nth-child(6) { animation-delay: 0.5s; }
-.featured-logo-link.animate:nth-child(7) { animation-delay: 0.6s; }
-.featured-logo-link.animate:nth-child(8) { animation-delay: 0.7s; }
-.featured-logo-link.animate:nth-child(9) { animation-delay: 0.8s; }
+/* The stagger delay is set in JS from each logo's index, so adding logos to a
+   grid can't leave the extra ones without a delay. */
 
 /* Responsive design improvements */
 @media (max-width: 768px) {
@@ -735,7 +729,8 @@ document.addEventListener('DOMContentLoaded', function() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const logoLinks = entry.target.querySelectorAll('.featured-logo-link');
-        logoLinks.forEach(link => {
+        logoLinks.forEach((link, index) => {
+          link.style.animationDelay = (index * 0.1) + 's';
           link.classList.add('animate');
         });
         observer.unobserve(entry.target);
