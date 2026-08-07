@@ -20,6 +20,13 @@ As a technical AI risk management expert, my focus lies in addressing the growin
 
 I am the Executive Director of [SaferAI](https://www.safer-ai.org/) where I work on both AI governance and technical solutions to improve the risk management for frontier AI systems.
 
+<div class="current-roles">
+  <h4 id="appointments">Appointments</h4>
+  <p>Member, <a href="https://digital-strategy.ec.europa.eu/en/policies/ai-advisory-forum">EU AI Act Advisory Forum</a></p>
+  <p>Member, <a href="https://oecd.ai/en/site/risk-accountability">OECD Expert Group on AI Risk &amp; Accountability</a></p>
+  <p>Expert, <a href="https://www.iso.org/committee/6794475.html">ISO/IEC JTC 1/SC 42</a> and <a href="https://norminfo.afnor.org/structure/afnorcn-ia/intelligence-artificielle/127690">AFNOR/CN IA</a>, AI standards</p>
+</div>
+
 #### Governance
 
 I am contributing to various initiatives in the governance space. I was in an expert working group for the EU AI Act's Codes of Practice, which focuses on general purpose AI models. My working group was focusing on the risk taxonomy and on risk identification and assessment. 

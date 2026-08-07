@@ -241,6 +241,18 @@ ul.task-list input[type="checkbox"] {
   top: -0.3rem;
 }
 
+.current-roles {
+  margin-bottom: 1.5rem;
+
+  p {
+    margin-bottom: 0.15rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .profile {
     width: 30%;
