@@ -1354,12 +1354,14 @@ nav[data-toggle="toc"] {
 }
 
 /* small screens */
-@media (max-width: 576px) {
-  /* override stickyness so that the navigation does not follow scrolling */
-  nav[data-toggle="toc"] {
-    visibility: hidden;
-    height: 0;
-    top: 0;
+/* Below bootstrap's sm breakpoint the sidebar column is removed outright.
+   This keys off markup that is present in the initial HTML: the old rule
+   targeted nav[data-toggle="toc"], but that attribute is only added once
+   bootstrap-toc has run, so the column rendered and then vanished. */
+@media (max-width: 575.98px) {
+  .toc-sidebar-col,
+  #toc-sidebar {
+    display: none !important;
   }
 }
 

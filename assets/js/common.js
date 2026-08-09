@@ -38,16 +38,39 @@ $(document).ready(function () {
     });
 
     var navSelector = "#toc-sidebar";
-    var $myNav = $(navSelector);
-    Toc.init($myNav);
-    // The navbar is sticky, and post headings carry a matching scroll-margin,
-    // so a heading clicked in the TOC lands ~5rem below the top of the viewport.
-    // Without the same offset here, scrollspy would still consider the previous
-    // section to be the current one and highlight the wrong entry.
-    $("body").scrollspy({
-      target: navSelector,
-      offset: 90,
-    });
+
+    // The sidebar is hidden below bootstrap's sm breakpoint, so don't build it
+    // there at all: populating a nav that CSS then hides is what made it flash
+    // on screen for an instant on phones. Build it only if/when the viewport is
+    // wide enough (a rotation or resize past the breakpoint still gets one).
+    var tocMediaQuery = window.matchMedia("(min-width: 576px)");
+    var tocBuilt = false;
+
+    var buildToc = function () {
+      if (tocBuilt || !tocMediaQuery.matches) return;
+      tocBuilt = true;
+
+      Toc.init($(navSelector));
+      // The navbar is sticky, and post headings carry a matching scroll-margin,
+      // so a heading clicked in the TOC lands ~5rem below the top of the
+      // viewport. Without the same offset here, scrollspy would still consider
+      // the previous section to be the current one and highlight the wrong entry.
+      $("body").scrollspy({
+        target: navSelector,
+        offset: 90,
+      });
+    };
+
+    buildToc();
+
+    if (!tocBuilt) {
+      if (tocMediaQuery.addEventListener) {
+        tocMediaQuery.addEventListener("change", buildToc);
+      } else {
+        // Safari < 14
+        tocMediaQuery.addListener(buildToc);
+      }
+    }
   }
 
   // add css to jupyter notebooks
