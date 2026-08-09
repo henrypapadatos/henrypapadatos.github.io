@@ -1353,6 +1353,22 @@ nav[data-toggle="toc"] {
   }
 }
 
+/* On phones, run the entry accent border out to the edge of the screen. This
+   restores what jekyll-scholar's old .row wrapper did for free: its -15px
+   margin cancelled the .container's 15px padding. Applied to the publications
+   and blog lists only, and only below the sm breakpoint - the wider layouts
+   keep the border aligned with the rest of the column. */
+@media (max-width: 575.98px) {
+  .publications ol.bibliography li .bib-entry {
+    margin-left: -15px;
+  }
+
+  // Selected papers on the about page stay where they are.
+  .about-content .publications ol.bibliography li .bib-entry {
+    margin-left: 0;
+  }
+}
+
 /* small screens */
 /* Below bootstrap's sm breakpoint the sidebar column is removed outright.
    This keys off markup that is present in the initial HTML: the old rule
