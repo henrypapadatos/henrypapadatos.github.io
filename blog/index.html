@@ -1,0 +1,228 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Blog | Henry Papadatos </title> <meta name="author" content="Henry Papadatos"> <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. "> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?b05f9a0b7405d7c8c89c7465593dea81"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?dadeb9c5d1fd12bc8d37475657446863"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?1fefb6021bf36010f25ea1cef24af84e"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?53a094b51ed1d1e025731eb00d240058" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="/assets/img/h_logo.png?f3e5e75808419b8efdca4088683fa564"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://henrypapadatos.github.io/blog/"> <script src="/assets/js/theme.js?042bf9ed5b58bc7681517c9a77ffe798"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?46af317e693b09921dcb92261d123fbc" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Henry</span> Papadatos </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/media/">Media </a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5 " role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Blog</h1> <p class="post-description"></p> </header> <article> <div class="publications"> <h2 class="bibliography">2026</h2> <ol class="bibliography"> <li> <div class="bib-entry"> <div class="pub-type">research · 14 min read </div> <div class="title"><a href="/blog/2026/quantitative-ai-risk-assessment/">Quantitative AI risk assessment: a starting point</a></div> <div class="author">Henry Papadatos, Matt Smith, Renn Karageorgieva, Jakub Kryś, Lily Stelling, Malcolm Murray</div> <div class="description">Current AI risk management relies on qualitative approaches, much like nuclear safety before 1975. We propose a shift to quantitative risk modeling, following the approach that transformed nuclear safety. We propose a methodology and demonstrate it by building nine probabilistic models of AI-enabled cyber attacks. This is a first attempt at AI risk quantification. We invite criticism and hope this can be a starting point for the kind of iterative improvement that made nuclear safety robust.</div> <div class="periodical"> <em>May 27, 2026</em> </div> </div> </li> </ol> </div> <style>html{background-color:var(--global-bg-color)}body{background-color:transparent!important}#wp-bg-host{position:fixed;inset:0;z-index:-1;background:var(--global-bg-color)}#wp-bg-host canvas{display:block;width:100%;height:100%}</style> <div id="wp-bg-host"></div> <script>
+(function() {
+  const PRESET = {
+    gridSize: 80,
+    gridSizeMobile: 18,
+    warpStrength: 7,
+    warpRadius: 142,
+    clickForce: 3,
+    particleSize: 0.45,
+    lineAlpha: 0.11
+  };
+
+  const mobileMQ = window.matchMedia('(max-width: 768px)');
+  function effectiveGridSize() {
+    return mobileMQ.matches ? PRESET.gridSizeMobile : PRESET.gridSize;
+  }
+  // Rebuild mesh when crossing the mobile breakpoint, and reset mouse off-screen
+  // when entering mobile so any stale hover position doesn't keep warping.
+  mobileMQ.addEventListener('change', () => {
+    if (typeof buildHexMesh === 'function') buildHexMesh();
+    if (mobileMQ.matches && typeof mouse !== 'undefined') {
+      mouse.x = -1e6; mouse.y = -1e6;
+      smoothMouse.x = -1e6; smoothMouse.y = -1e6;
+    }
+  });
+
+  const THEME_LIGHT = { bg: '#efd9c4', primary: '#1a5a8a', intensity: 0.6 };
+  const THEME_DARK  = { bg: '#1c1c1d', primary: '#2698ba', intensity: 0.8 };
+
+  function hexToRgb(hex) {
+    const v = hex.replace('#', '');
+    return [
+      parseInt(v.slice(0,2), 16),
+      parseInt(v.slice(2,4), 16),
+      parseInt(v.slice(4,6), 16)
+    ];
+  }
+
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? THEME_DARK : THEME_LIGHT;
+  }
+  let theme = currentTheme();
+  let primaryRgb = hexToRgb(theme.primary);
+  let colorRgb = `${primaryRgb[0]}, ${primaryRgb[1]}, ${primaryRgb[2]}`;
+
+  const host = document.getElementById('wp-bg-host');
+  if (!host) return;
+  host.style.background = theme.bg;
+
+  const themeObserver = new MutationObserver(() => {
+    theme = currentTheme();
+    primaryRgb = hexToRgb(theme.primary);
+    colorRgb = `${primaryRgb[0]}, ${primaryRgb[1]}, ${primaryRgb[2]}`;
+    host.style.background = theme.bg;
+  });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  let dpr = window.devicePixelRatio || 1;
+  const canvas = document.createElement('canvas');
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let particles = [];
+  let edges = [];
+
+  function buildHexMesh() {
+    particles = [];
+    edges = [];
+    const w = canvas.width, h = canvas.height;
+    const sqrt3 = Math.sqrt(3);
+    const hexCols = Math.max(2, Math.round(effectiveGridSize() / 2));
+    const s = w / (hexCols * sqrt3);
+    const hexW = sqrt3 * s;
+    const rowStep = 1.5 * s;
+    const hexRows = Math.ceil(h / rowStep) + 2;
+
+    const vertexMap = new Map();
+    function addVertex(x, y) {
+      const key = `${Math.round(x)},${Math.round(y)}`;
+      if (vertexMap.has(key)) return vertexMap.get(key);
+      const idx = particles.length;
+      vertexMap.set(key, idx);
+      particles.push({ x, y, ox: x, oy: y });
+      return idx;
+    }
+    const edgeSet = new Set();
+    function addEdge(a, b) {
+      const k = a < b ? `${a}-${b}` : `${b}-${a}`;
+      if (edgeSet.has(k)) return;
+      edgeSet.add(k);
+      edges.push([a, b]);
+    }
+    for (let hr = -1; hr <= hexRows; hr++) {
+      for (let hc = -1; hc <= hexCols + 1; hc++) {
+        const cx = hc * hexW + (Math.abs(hr) % 2 !== 0 ? hexW / 2 : 0);
+        const cy = hr * rowStep;
+        const vs = [];
+        for (let k = 0; k < 6; k++) {
+          const angle = Math.PI / 6 + k * Math.PI / 3;
+          vs.push(addVertex(cx + Math.cos(angle) * s, cy + Math.sin(angle) * s));
+        }
+        for (let k = 0; k < 6; k++) addEdge(vs[k], vs[(k + 1) % 6]);
+      }
+    }
+  }
+
+  buildHexMesh();
+
+  // On mobile, skip continuous mouse tracking — finger touch leaves a sticky
+  // warp where you lifted off. Only taps (click events) create impulses.
+  const initialMouse = mobileMQ.matches
+    ? { x: -1e6, y: -1e6 }
+    : { x: window.innerWidth * 0.5 * dpr, y: window.innerHeight * 0.5 * dpr };
+  let mouse = { x: initialMouse.x, y: initialMouse.y };
+  let smoothMouse = { x: mouse.x, y: mouse.y };
+  let click = { x: -1e6, y: -1e6, time: -100 };
+  const startTime = performance.now();
+
+  window.addEventListener('mousemove', e => {
+    if (mobileMQ.matches) return;
+    mouse.x = e.clientX * dpr;
+    mouse.y = e.clientY * dpr;
+    wake(800);
+  });
+  window.addEventListener('click', e => {
+    if (e.target.closest('a, button, input, textarea, select')) return;
+    click.x = e.clientX * dpr;
+    click.y = e.clientY * dpr;
+    click.time = (performance.now() - startTime) / 1000;
+    wake(2500); // click ripple lasts ~2s, plus settle buffer
+  });
+  window.addEventListener('resize', () => {
+    dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    buildHexMesh();
+    wake(1500);
+  });
+
+  function frame() {
+    const t = (performance.now() - startTime) / 1000;
+    smoothMouse.x += (mouse.x - smoothMouse.x) * 0.1;
+    smoothMouse.y += (mouse.y - smoothMouse.y) * 0.1;
+
+    const w = canvas.width, h = canvas.height;
+    const warpStrength = PRESET.warpStrength * dpr;
+    const warpRadius = PRESET.warpRadius * dpr;
+    const wr2 = warpRadius * warpRadius * 0.5;
+    const intensity = theme.intensity;
+    const clickAge = t - click.time;
+
+    ctx.fillStyle = theme.bg;
+    ctx.fillRect(0, 0, w, h);
+
+    for (const p of particles) {
+      const dx = p.ox - smoothMouse.x, dy = p.oy - smoothMouse.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      let tx = p.ox, ty = p.oy;
+      if (dist < warpRadius) {
+        const fall = Math.exp(-(dist*dist) / wr2);
+        tx += (dx / (dist + 0.01)) * fall * warpStrength;
+        ty += (dy / (dist + 0.01)) * fall * warpStrength;
+      }
+      if (clickAge >= 0 && clickAge < 2) {
+        const cdx = p.ox - click.x, cdy = p.oy - click.y;
+        const cdist = Math.sqrt(cdx*cdx + cdy*cdy);
+        const wave = clickAge * 700 * dpr;
+        const diff = Math.abs(cdist - wave);
+        if (diff < 100 * dpr) {
+          const f = (1 - diff / (100 * dpr)) * (1 - clickAge / 2) * warpStrength * PRESET.clickForce;
+          tx += (cdx / (cdist + 0.01)) * f;
+          ty += (cdy / (cdist + 0.01)) * f;
+        }
+      }
+      p.x += (tx - p.x) * 0.2;
+      p.y += (ty - p.y) * 0.2;
+    }
+
+    // Optimization #1: batch all edges into a single path + single stroke()
+    ctx.lineWidth = 0.5 * dpr;
+    ctx.strokeStyle = `rgba(${colorRgb}, ${PRESET.lineAlpha * intensity})`;
+    ctx.beginPath();
+    for (const [a, b] of edges) {
+      const pa = particles[a], pb = particles[b];
+      ctx.moveTo(pa.x, pa.y);
+      ctx.lineTo(pb.x, pb.y);
+    }
+    ctx.stroke();
+
+    // Particles: also a single path
+    ctx.fillStyle = `rgba(${colorRgb}, ${0.7 * intensity})`;
+    const r = PRESET.particleSize * dpr;
+    ctx.beginPath();
+    for (const p of particles) {
+      ctx.moveTo(p.x + r, p.y);
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+    }
+    ctx.fill();
+
+    // Optimization #3: stop rAF when nothing is changing.
+    // Wake on mouse/click; sleep when wakeUntil expires AND mesh is settled.
+    const settled = Math.abs(mouse.x - smoothMouse.x) < 0.3
+                 && Math.abs(mouse.y - smoothMouse.y) < 0.3;
+    if (performance.now() < wakeUntil || !settled) {
+      requestAnimationFrame(frame);
+    } else {
+      isLooping = false;
+    }
+  }
+
+  let wakeUntil = 0;
+  let isLooping = false;
+  function wake(durationMs) {
+    wakeUntil = Math.max(wakeUntil, performance.now() + durationMs);
+    if (!isLooping) {
+      isLooping = true;
+      requestAnimationFrame(frame);
+    }
+  }
+  // Initial paint + 1.5s settle (mesh particles need a few frames to converge)
+  wake(1500);
+})();
+</script> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?c999e8c5281874b7534e3352f835d4c3" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?b977fe0c21b2118ed853308b1b923969"></script> <script src="/assets/js/no_defer.js?699fa7cbe3b29f831db7d5250ba3203a"></script> <script defer src="/assets/js/common.js?9faa95bae04d8d640d482995beca60c2"></script> <script defer src="/assets/js/copy_code.js?d359581efc54b08366f9ef8219e6e511" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?25eff8ff4144a010e4ad7b31403102cf"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?04761245f225e3ad9e5e3f875d4e1074"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?b78cb42895d74e4fd6de6f633edcf181" type="text/javascript"></script> </body> </html>
