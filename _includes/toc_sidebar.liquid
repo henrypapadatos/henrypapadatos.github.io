@@ -1,0 +1,31 @@
+{% comment %}
+  Decides whether a page gets the sidebar table of contents, and on which side.
+  Sets `toc_sidebar_position` to 'left', 'right' or '' (no sidebar).
+
+  Front matter always wins:
+    toc: {sidebar: left}   -> forced on
+    toc: false             -> forced off
+  Otherwise a post gets one automatically when it is both long enough and
+  sectioned enough to need one. Thresholds live in _config.yml under `toc_auto`.
+
+  Included from default.liquid before <head>, so head.liquid and scripts.liquid
+  can load the bootstrap-toc assets off the same decision.
+{% endcomment %}
+
+{% assign toc_sidebar_position = '' %}
+
+{% if page.toc and page.toc.sidebar %}
+  {% assign toc_sidebar_position = page.toc.sidebar %}
+{% elsif page.layout == 'post' and page.toc != false %}
+  {% assign toc_min_words = site.toc_auto.min_words | default: 800 %}
+  {% assign toc_min_headings = site.toc_auto.min_headings | default: 4 %}
+
+  {% assign toc_words = page.content | number_of_words %}
+  {% assign toc_h2_count = content | split: '<h2' | size | minus: 1 %}
+  {% assign toc_h3_count = content | split: '<h3' | size | minus: 1 %}
+  {% assign toc_heading_count = toc_h2_count | plus: toc_h3_count %}
+
+  {% if toc_words >= toc_min_words and toc_heading_count >= toc_min_headings %}
+    {% assign toc_sidebar_position = 'left' %}
+  {% endif %}
+{% endif %}

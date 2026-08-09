@@ -1,3 +1,4 @@
+{% include toc_sidebar.liquid %}
 <!doctype html>
 <html lang="{{ site.lang }}">
   <!-- Head -->
@@ -21,9 +22,9 @@
     {% include header.liquid %}
 
     <!-- Content -->
-    <div class="container mt-5" role="main">
-      {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
+    <div class="container mt-5 {% if toc_sidebar_position != '' %}container-toc{% endif %}" role="main">
+      {% if toc_sidebar_position != '' %}
+        {% if toc_sidebar_position == 'right' %}
           <div class="row">
             <!-- main content area -->
             <div class="col-sm-9">{{ content }}</div>

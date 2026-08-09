@@ -23,11 +23,30 @@ $(document).ready(function () {
     $(".publications h2").each(function () {
       $(this).attr("data-toc-skip", "");
     });
+
+    // Kramdown derives heading ids from the heading text, so a heading like
+    // "1. Risk increases..." gets the id "1-risk-increases-...". An id starting
+    // with a digit is not a valid CSS selector: document.querySelector throws on
+    // it, bootstrap's scrollspy swallows that in a try/catch, and the entry is
+    // silently dropped from the TOC's scroll tracking - it can never highlight.
+    // Prefix those ids before the TOC is built so every entry is selectable.
+    $(".post-content :header[id]").each(function () {
+      var id = this.id;
+      if (/^[0-9]/.test(id)) {
+        this.id = "sec-" + id;
+      }
+    });
+
     var navSelector = "#toc-sidebar";
     var $myNav = $(navSelector);
     Toc.init($myNav);
+    // The navbar is sticky, and post headings carry a matching scroll-margin,
+    // so a heading clicked in the TOC lands ~5rem below the top of the viewport.
+    // Without the same offset here, scrollspy would still consider the previous
+    // section to be the current one and highlight the wrong entry.
     $("body").scrollspy({
       target: navSelector,
+      offset: 90,
     });
   }
 

@@ -12,6 +12,12 @@ nav_order: 2
 
 <div class="publications">
 
+<div class="scholar-link">
+  <a href="https://scholar.google.com/citations?user=sR9YhcsAAAAJ" target="_blank" rel="noopener noreferrer">
+    <i class="ai ai-google-scholar"></i> View on Google Scholar
+  </a>
+</div>
+
 {% bibliography %}
 
 </div>
