@@ -42,8 +42,13 @@ module Jekyll
       CacheDigester.new(file_name: file_name, directory: nil).digest!
     end
 
+    # The sass sources live in _sass/, not assets/_sass/. With the wrong path the
+    # glob matched nothing, so the digest was the MD5 of an empty string
+    # (d41d8cd9...) on every build: main.css's cache-busting query string never
+    # changed, and any browser that had cached the stylesheet kept serving the
+    # stale copy forever.
     def bust_css_cache(file_name)
-      CacheDigester.new(file_name: file_name, directory: 'assets/_sass').digest!
+      CacheDigester.new(file_name: file_name, directory: '_sass').digest!
     end
   end
 end

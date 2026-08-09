@@ -1075,6 +1075,23 @@ html.transition *:after {
     scroll-margin-top: 5rem;
   }
 
+  // Kramdown emits a bare U+21A9 for the footnote back-link. That codepoint has
+  // an emoji presentation, so iOS and Android substitute their emoji font and
+  // render a colour glyph, while desktop browsers render the plain text arrow.
+  // Replace it with the same character plus U+FE0E (text presentation selector)
+  // in an explicit text font, so it looks identical everywhere.
+  a.reversefootnote {
+    font-size: 0;
+    text-decoration: none;
+
+    &::after {
+      content: "\21A9\FE0E";
+      font-family: "Roboto Slab", serif;
+      font-size: 0.9rem;
+      color: var(--global-theme-color);
+    }
+  }
+
   // Table 1 reads fine at a smaller size than the charts, centred in the column.
   img.figure-80 {
     display: block;
