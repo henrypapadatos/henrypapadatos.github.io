@@ -216,7 +216,16 @@
   <!-- Analytics -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script defer src="{{ '/assets/js/google-analytics-setup.js' | relative_url | bust_file_cache }}"></script>
+  <!-- Inlined rather than sourced from assets/js/google-analytics-setup.js: that file has no front
+       matter, so Jekyll leaves its {{ site.google_analytics }} placeholder unrendered. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "{{ site.google_analytics }}");
+  </script>
 {% endif %}
 
 {% if site.enable_cronitor_analytics %}
