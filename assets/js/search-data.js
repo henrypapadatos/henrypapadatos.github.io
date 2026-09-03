@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/media/";
           },
-        },{id: "post-quantitative-ai-risk-assessment-a-starting-point",
+        },{id: "post-building-a-high-talent-density-organization",
+      
+        title: "Building a high talent density organization",
+      
+      description: "A lot of organizations hire by posting a job ad and waiting for applications. Doing it this way, you&#39;re unlikely to get the best people for the role, because they probably won&#39;t be applying in the first place. This post lays out a few pointers on the sourcing side: how to find those people and get them in your hiring process.",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2026/building-a-high-talent-density-organization/";
+        
+      },
+    },{id: "post-quantitative-ai-risk-assessment-a-starting-point",
       
         title: "Quantitative AI risk assessment: a starting point",
       
