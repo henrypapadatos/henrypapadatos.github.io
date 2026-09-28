@@ -173,6 +173,11 @@ nav_order: 4
       <h2 class="section-title">Quoted In</h2>
       <div class="featured-logos-grid">
 
+        <!-- De Standaard logo -->
+        <a href="https://www.standaard.be/media-en-cultuur/de-ai-bedrijven-hebben-de-problemen-niet-onder-controle-maar-europa-is-niet-machteloos/161609210.html" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/destandaard-logo.svg' | relative_url }}" alt="De Standaard Logo" class="featured-logo">
+        </a>
+
         <!-- Guardian logo -->
         <a href="https://www.theguardian.com/technology/2026/jan/06/leading-ai-expert-delays-timeline-possible-destruction-humanity" target="_blank" class="featured-logo-link">
           <img src="{{ '/assets/img/media/theguardian-logo.jpg' | relative_url }}" alt="The Guardian Logo" class="featured-logo">
