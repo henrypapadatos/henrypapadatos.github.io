@@ -173,6 +173,11 @@ nav_order: 4
       <h2 class="section-title">Quoted In</h2>
       <div class="featured-logos-grid">
 
+        <!-- Le Figaro logo -->
+        <a href="https://www.lefigaro.fr/secteur/high-tech/dispersee-et-sans-cadre-l-evaluation-de-la-securite-des-modeles-d-ia-en-plein-brouillard-20260915" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/lefigaro-logo.svg' | relative_url }}" alt="Le Figaro Logo" class="featured-logo">
+        </a>
+
         <!-- De Standaard logo -->
         <a href="https://www.standaard.be/media-en-cultuur/de-ai-bedrijven-hebben-de-problemen-niet-onder-controle-maar-europa-is-niet-machteloos/161609210.html" target="_blank" class="featured-logo-link">
           <img src="{{ '/assets/img/media/destandaard-logo.svg' | relative_url }}" alt="De Standaard Logo" class="featured-logo">
