@@ -173,6 +173,16 @@ nav_order: 4
       <h2 class="section-title">Quoted In</h2>
       <div class="featured-logos-grid">
 
+        <!-- Euractiv logo -->
+        <a href="https://www.euractiv.com/news/ai-jailbreakers-test-eu-safety-rules/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/Euractiv_logo.svg' | relative_url }}" alt="Euractiv Logo" class="featured-logo">
+        </a>
+
+        <!-- Axios logo -->
+        <a href="https://www.axios.com/2026/09/18/ai-safety-evaluators-metr-white-house-trump" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/axios-logo.svg' | relative_url }}" alt="Axios Logo" class="featured-logo">
+        </a>
+
         <!-- Le Figaro logo -->
         <a href="https://www.lefigaro.fr/secteur/high-tech/dispersee-et-sans-cadre-l-evaluation-de-la-securite-des-modeles-d-ia-en-plein-brouillard-20260915" target="_blank" class="featured-logo-link">
           <img src="{{ '/assets/img/media/lefigaro-logo.svg' | relative_url }}" alt="Le Figaro Logo" class="featured-logo">
