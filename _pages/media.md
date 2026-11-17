@@ -173,6 +173,11 @@ nav_order: 4
       <h2 class="section-title">Quoted In</h2>
       <div class="featured-logos-grid">
 
+        <!-- Rapporteur logo -->
+        <a href="https://www.rapporteur.com/news/how-eu-ai-testers-could-be-set-up-for-success/" target="_blank" class="featured-logo-link">
+          <img src="{{ '/assets/img/media/rapporteur-logo.svg' | relative_url }}" alt="Rapporteur Logo" class="featured-logo">
+        </a>
+
         <!-- Euractiv logo -->
         <a href="https://www.euractiv.com/news/ai-jailbreakers-test-eu-safety-rules/" target="_blank" class="featured-logo-link">
           <img src="{{ '/assets/img/media/Euractiv_logo.svg' | relative_url }}" alt="Euractiv Logo" class="featured-logo">
